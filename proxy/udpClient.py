@@ -28,7 +28,6 @@ def put_method(textFname):
             clientSocket.sendto(message, serverAddr)
         modifiedMessage, serverAddrPort = clientSocket.recvfrom(2048)
         print "Message from %s is: %s" % (repr(serverAddrPort), modifiedMessage)
-        # print "Modified message from %s is <%s>" % (repr(serverAddrPort), modifiedMessage)
 
 
 try:

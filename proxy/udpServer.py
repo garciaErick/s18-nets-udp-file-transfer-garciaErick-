@@ -38,8 +38,6 @@ with open("plswork.txt", 'w') as outputFile:
             modifiedMessage = message
             outputFile.write(message + "\n")
             outputFile.flush()
-            # print "from %s: rec'd '%s'" % (repr(clientAddrPort), message)
-            # serverSocket.sendto(modifiedMessage, clientAddrPort)
         finally:
             modifiedMessage = "Successfully made put request"
             serverSocket.sendto(modifiedMessage, clientAddrPort)
