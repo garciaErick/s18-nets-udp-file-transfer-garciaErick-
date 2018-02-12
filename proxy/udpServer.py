@@ -28,9 +28,9 @@ serverSocket.bind(serverAddr)
 print "ready to receive"
 while 1:
     message, clientAddrPort = serverSocket.recvfrom(2048)
-    with open("plswork.txt", 'w') as inputFile: #Add to the dictionary the words found in the file.
-        modifiedMessage = message.upper()
-        inputFile.write(modifiedMessage)
+    with open("plswork.txt", 'w') as outputFile: #Add to the dictionary the words found in the file.
+        # modifiedMessage = message.upper()
+        outputFile.write(message)
     #print "from %s: rec'd '%s'" % (repr(clientAddrPort), message)
 
-    serverSocket.sendto(modifiedMessage, clientAddrPort)
+serverSocket.sendto("fuck the police", clientAddrPort)
