@@ -26,11 +26,12 @@ print "binding datagram socket to %s" % repr(serverAddr)
 serverSocket = socket(AF_INET, SOCK_DGRAM)
 serverSocket.bind(serverAddr)
 print "ready to receive"
-while 1:
-    message, clientAddrPort = serverSocket.recvfrom(2048)
-    with open("plswork.txt", 'w') as outputFile: #Add to the dictionary the words found in the file.
-        # modifiedMessage = message.upper()
-        outputFile.write(message)
-    #print "from %s: rec'd '%s'" % (repr(clientAddrPort), message)
-
-serverSocket.sendto("fuck the police", clientAddrPort)
+with open("plswork.txt", 'w') as outputFile:
+    while 1:
+        message, clientAddrPort = serverSocket.recvfrom(2048)
+        modifiedMessage = message
+        outputFile.write(message + "\n")
+        print "from %s: rec'd '%s'" % (repr(clientAddrPort), message)
+        serverSocket.sendto(modifiedMessage, clientAddrPort)
+        outputFile.flush()
+    outputFile.close()
